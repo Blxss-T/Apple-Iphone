@@ -7,8 +7,11 @@ export default defineConfig({
   plugins: [
     react(),
     sentryVitePlugin({
-      org: 'jsm-x9',       // Your Sentry organization
-      project: 'javascript-react', // Your Sentry project
+      org: 'jsm-x9',
+      project: 'javascript-react',
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      release: process.env.VITE_SENTRY_RELEASE || 'apple-landing-v1',
+      include: './dist',
     })
   ],
 
